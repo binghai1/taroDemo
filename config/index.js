@@ -9,6 +9,9 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
+  h5: {
+    esnextModules: ['taro-ui']
+  },
   plugins: {
     babel: {
       sourceMap: true,

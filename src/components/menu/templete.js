@@ -5,14 +5,20 @@ class Templete extends Component {
     config = {
     navigationBarTitleText: 'Templete'
   }
-  async  componentWillMount(){
+    componentWillMount(){
   }
  
    componentWillUnmount () { 
     
+  }
+  render(){
+    return (
+      <View>Templete</View>
+    )
   }
 
 
 
 
 }
+export default Templete

@@ -1,0 +1,2 @@
+export const GET_TOPIC_LIST="GET_TOPIC_LIST"
+export const NEXT_TOPIC_LIST="NEXT_TOPIC_LIST"
