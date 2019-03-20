@@ -1,10 +1,19 @@
 import {GET_TOPIC_LIST,NEXT_TOPIC_LIST} from '../constants/topicList'
 import {getTopics} from '../util/request'
-export function getTopicList(data){
+export function getTopicList(params){
     return async (dispatch)=>{
-        var result=await getTopics(data)
-        if(result&&result.data){
-            console.log(result)
+        console.log(params)
+        var result=await getTopics(params)
+        if(result&&result.data&&result.data.success){
+            dispatch({type:GET_TOPIC_LIST,list:result.data.data})
+        }
+    }
+}
+export function getNextTopicList(params){
+    return async (dispatch)=>{
+        var result=await getTopics(params)
+        if(result&&result.data&&result.data.success){
+            dispatch({type:NEXT_TOPIC_LIST,list:result.data.data})
         }
     }
 }

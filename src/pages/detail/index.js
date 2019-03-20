@@ -1,16 +1,17 @@
 import Taro,{Component} from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
-class Templete extends Component {
+class Detail extends Component {
     config = {
-    navigationBarTitleText: 'Templete'
+    navigationBarTitleText: 'Detail'
   }
     componentWillMount(){
+        console.log(this.$router.params.topicid)
   }
- 
+  
   render(){
     return (
-      <View>Templete</View>
+      <View>detial</View>
     )
   }
 
@@ -18,4 +19,4 @@ class Templete extends Component {
 
 
 }
-export default Templete
+export default Detail

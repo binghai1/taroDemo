@@ -1,12 +1,16 @@
 import Taro,{Component} from '@tarojs/taro'
-import { View, Button, Text } from '@tarojs/components'
+import { View, Button, Text,ScrollView } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
-import {getTopicList} from '../../actions/topicList'
+import {getTopicList,getNextTopicList} from '../../actions/topicList'
+import Topic from './topic'
 //getTopicList
-@connect(({TopicList,menu})=>({...TopicList,tab:menu.currentCate.key}),
+@connect(({topicList,menu})=>({...topicList,tab:menu.currentCate.key}),
     (dispatch)=>({
-        getTopicList(){
-            dispatch(getTopicList())
+        getTopicList(params){
+            dispatch(getTopicList(params))
+        },
+        getNextTopicList(params){
+            dispatch(getNextTopicList(params))
         }
     })
 )
@@ -15,16 +19,20 @@ class TopicList extends Component {
     navigationBarTitleText: 'Templete'
   }
     componentWillMount(){
-        var a=this.props.getTopicList()
-        console.log(a)
+        const {page,limit,tab}=this.props
+        this.props.getTopicList({page,limit,tab})
     }
- 
-   componentWillUnmount () { 
-    
-  }
+    getNextList(){
+        const {page,limit,tab}=this.props
+        this.props.getNextTopicList({page:page+1,limit,tab})
+    }
   render(){
     return (
-      <View>TopicList</View>
+      <ScrollView style='height:750px;' scrollY={true} onScrollToLower={this.getNextList.bind(this)}>
+        {this.props.list.map(
+            (item)=>(<Topic item={item}/>)
+        )}
+      </ScrollView>
     )
   }
 
