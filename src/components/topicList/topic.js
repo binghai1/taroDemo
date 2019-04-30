@@ -24,7 +24,7 @@ class Topic extends Component {
                 <View  className='topic-info'>
                     <Text>{item.author?item.author.loginname:''}</Text>
                     <Text>{item.reply_count+'/'+item.visit_count}</Text>
-                    <Text>创建时间{item.create_at}</Text>
+                    <Text>创建时间{myTimeToLocal(item.create_at)}</Text>
                 </View>
             </View>
         </View>

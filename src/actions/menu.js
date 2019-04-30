@@ -1,5 +1,5 @@
 import {SHOW_DRAWER,HIDE_DRAWER,CHANGE_CATE} from '../constants/menu'
-import {getTopicList} from './topicList'
+import {getTopicList} from './topiclist'
 export function showDrawer(){
     return dispatch=> dispatch({type:SHOW_DRAWER})
 }

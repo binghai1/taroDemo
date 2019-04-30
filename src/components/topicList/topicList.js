@@ -1,10 +1,10 @@
 import Taro,{Component} from '@tarojs/taro'
 import { View, Button, Text,ScrollView } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
-import {getTopicList,getNextTopicList} from '../../actions/topicList'
+import {getTopicList,getNextTopicList} from '../../actions/topiclist'
 import Topic from './topic'
 //getTopicList
-@connect(({topicList,menu})=>({...topicList,tab:menu.currentCate.key}),
+@connect(({topiclist,menu})=>({...topiclist,tab:menu.currentCate.key}),
     (dispatch)=>({
         getTopicList(params){
             dispatch(getTopicList(params))
